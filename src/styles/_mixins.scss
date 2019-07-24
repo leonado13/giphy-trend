@@ -1,0 +1,13 @@
+@import "variables";
+
+@mixin for-tablet() {
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-desktop() {
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}

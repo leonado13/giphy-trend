@@ -1,9 +1,23 @@
 import React, {Component} from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import TrendingItemModal from "components/TrendingItemModal/TrendingItemModal";
+import {showModal} from "store/actions/modal";
 
 import styles from './TrendingItem.module.scss';
 
 class TrendingItem extends Component {
+  showImageModal() {
+    const {data, showModal} = this.props;
+    showModal(
+      <TrendingItemModal img={data.images.original.url}
+                         title={data.title}
+      />
+    );
+  }
+
   render() {
     const {data} = this.props;
 
@@ -15,11 +29,12 @@ class TrendingItem extends Component {
               <img src={data.images.fixed_width.url}
                    alt={data.title}
                    className={styles.img}
+                   onClick={this.showImageModal.bind(this)}
               />
             </div>
           </div>
         </div>
-        { data.user ? (
+        {data.user ? (
           <div className={styles.authorContainer}>
             <a href={data.user.profile_url}
                className={styles.authorContent}>
@@ -40,4 +55,9 @@ class TrendingItem extends Component {
 TrendingItem.propTypes = {
   data: PropTypes.object,
 };
-export default TrendingItem;
+export default connect(
+  null,
+  dispatch => bindActionCreators({
+    showModal,
+  }, dispatch),
+)(TrendingItem);

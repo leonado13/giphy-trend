@@ -1,0 +1,61 @@
+@import '../../styles/mixins';
+
+.container {
+  margin: 0.5rem;
+}
+
+.contentContainer {
+  padding: 0.5rem;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.authorContainer {
+  padding: 0.5rem;
+}
+
+.rectangleContainer {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.imgContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+}
+
+.authorContent {
+  display: inline-flex;
+  align-items: center;
+}
+
+.authorAvatar {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.authorName {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+@include for-tablet() {
+  .container {
+    margin: 1rem;
+  }
+}

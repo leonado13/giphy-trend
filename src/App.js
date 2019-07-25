@@ -1,12 +1,12 @@
 import React from 'react';
 
-import TrendList from "components/TrendList/TrendList";
+import TrendingList from "components/TrendingList/TrendingList";
 
 function App() {
   return (
-    <div className="App">
-      <TrendList/>
-    </div>
+    <main>
+      <TrendingList/>
+    </main>
   );
 }
 
